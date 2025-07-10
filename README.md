@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🧭 TicketFlow — Frontend (Next.js 15)
 
-## Getting Started
+Ce projet contient le frontend de l'application TicketFlow, développé avec Next.js 15 (App Router), TypeScript et TailwindCSS.
 
-First, run the development server:
+## 🚀 Stack
+- React 18
+- Next.js 15 (App Router)
+- TailwindCSS
+- TypeScript
+- Zustand (state global)
+- Axios (requêtes HTTP)
 
+## 📦 Installation
+
+### 1. Cloner le dépôt
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/votre-utilisateur/ticketflow-frontend.git
+cd ticketflow-frontend
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Installer les dépendances
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. Variables d’environnement
+Créer un fichier `.env.local` à la racine :
+```env
+NEXT_PUBLIC_API_URL=https://tickets-app-XXXX.onrender.com/api
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 4. Lancer l’application localement
+```bash
+npm run dev
+```
 
-## Learn More
+## ✨ Fonctionnalités
+- Authentification via JWT
+- Gestion du token refresh automatique (Axios interceptor)
+- Dashboard responsive avec sidebar
+- Affichage dynamique des tickets (tri, recherche, responsive)
+- Affichage des messages liés à chaque ticket
+- Formulaires gérés avec React Hook Form
 
-To learn more about Next.js, take a look at the following resources:
+## 🛠️ Structure du projet
+```
+src/
+├── app/               # App Router (routing Next.js 15)
+│   ├── login/
+│   ├── dashboard/
+├── components/        # Composants UI réutilisables
+├── lib/               # Fonctions d’API Axios
+├── store/             # Zustand (auth, global state)
+├── types/             # Types TypeScript
+└── utils/             # Fonctions utilitaires
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📤 Déploiement (Vercel)
+- Déployé via Vercel : https://tickets-app-ui.vercel.app
+- Variable d’environnement `NEXT_PUBLIC_API_URL` configurée dans le dashboard
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🌐 Lien avec backend
+- Toutes les requêtes passent par Axios avec `Authorization: Bearer <token>`
+- Le backend est hébergé sur Render (voir README backend)
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🧪 Améliorations potentielles (V2)
+- Tests front (Jest ou Playwright)
+- Amélioration UI/UX (feedback utilisateur, transitions)
+- Thème sombre
+- Filtres avancés sur les tickets
+- Notifications toast
